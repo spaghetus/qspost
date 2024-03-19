@@ -15,4 +15,11 @@ let cargo-toml = (builtins.fromTOML (builtins.readFile ./Cargo.toml)); in rustPl
   buildInputs = [
     openssl
   ];
+
+  installPhase = ''
+    mkdir -p $out/share/qspost
+    mkdir -p $out/bin
+    cp -r templates $out/share/qspost/www
+    cp target/x86_64-unknown-linux-gnu/release/qspost $out/bin
+  '';
 }
