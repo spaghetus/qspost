@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QSPost settings</title>
+</head>
+
+<body>
+	<h1>Settings</h1>
+
+	<form action="/settings-submit">
+		<label for="post_privately">Post privately?</label>
+		<input type="checkbox" {% if post_privately %}checked="yes" {% endif %} id="post_privately"
+			name="post_privately">
+		<br>
+		<label for="tags">Tags?</label>
+		<input type="text" value="{% for tag in tags %}{{ tag }} {% endfor %}" id="tags" name="tags">
+		<i>(Space-separated list of #tags)</i>
+		<br>
+		<input type="submit">
+	</form>
+
+	<p>You're logged in now, so you can post by submitting a GET request like <code>/post?body=Hello%20world!</code></p>
+</body>
+
+</html>

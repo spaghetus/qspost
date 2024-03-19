@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Entry</title>
+</head>
+
+<body>
+	<h1>QSPOST</h1>
+	<i>OAuth client for posting from your browser's search bar</i><br>
+
+	{% if logged_in %}
+	<a href="/settings">Configure</a><br>
+	{% endif %}
+
+	<form action="/" method="get">
+		<label for="instance">Instance URL (like https://mastodon.social): </label>
+		<input type="url" id="instance" name="instance">
+		<br>
+		<input type="submit">
+	</form>
+
+</body>
+
+</html>
